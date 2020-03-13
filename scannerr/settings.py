@@ -14,7 +14,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_DIR = os.path.join(BASE_DIR,'airtel/static').replace('\\', '/')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -23,12 +22,17 @@ STATIC_DIR = os.path.join(BASE_DIR,'airtel/static').replace('\\', '/')
 SECRET_KEY = '3+drmpm!id+u9b*ele%vak$h%-jpbem=e5l6^e=v$-ad(&%(p%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '167.71.132.180']
 
 LOGIN_URL = "/login"
+SOCIAL_AUTH_STRATEGY = 'social_django.strategy.DjangoStrategy'
+SOCIAL_AUTH_STORAGE = 'social_django.models.DjangoStorage'
 
+HOSTNAME = '127.0.0.1:8000'
+
+CRISPY_TEMPLATE_PACK = 'boostrap4'
 
 
 # Application definition
@@ -42,6 +46,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'airtel',
     'pictureURL',
+    'crispy_forms',
+    'accounts',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +60,8 @@ MIDDLEWARE = [
     'detect.middleware.UserAgentDetectionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'social_django.middleware.SocialAuthExceptionMiddleware',
     # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
@@ -72,6 +81,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'social_django.context_processors.backends',
             ],
         },
     },
@@ -120,6 +130,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -138,11 +154,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'airtel/static/')
-STATICFILES_DIRS = [STATIC_DIR, ]
+STATIC_DIR = os.path.join(BASE_DIR,'airtel/static').replace('\\', '/')
+STATICFILES_DIRS = [STATIC_DIR,]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-# MEDIA_URL = '/Users/user/Documents/hbb/'
-MEDIA_URL = 'root/novapp/airtel/static/hbb/'
+FILE_URL = 'home/xyborgg/Desktop/WORK/novaapp/scannerr/airtel/static/csv'
+MEDIA_URL = '/home/xyborgg/Desktop/WORK/novaapp/scannerr/airtel/static/hbb/'
+# MEDIA_URL = 'root/novapp/airtel/static/hbb/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')
 
 
@@ -150,3 +168,47 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')
 
 
 # django_heroku.settings(locals())
+
+#
+# SERVER_EMAIL = 'nova360@gmail.com'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_PASSWORD = 'Shoots101!'
+# EMAIL_HOST_USER = SERVER_EMAIL
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#
+# ADMINS = [
+#     ('nova360@gmail.com'),
+# ]
+#
+# MANAGERS = ADMINS
+
+
+# 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
+
+
+# Email
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIT_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'fyung36@gmail.com'
+EMAIL_HOST_PASSWORD = 'qwerty22.'
+
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.user.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
+
+

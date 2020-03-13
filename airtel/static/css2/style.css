@@ -211,6 +211,10 @@ a:hover {
     font-size: 22px!important
 }
 
+.font-50 {
+    font-size: 50px !important;
+}
+
 hr {
     border-color: #e5ebec
 }
@@ -4630,7 +4634,7 @@ table.focus-on tbody tr.focused th {
     width: 240px;
     display: none;
     z-index: 1000;
-    background: #4f5467;
+    background: #e40000;
     top: 0;
     height: 100%;
     box-shadow: 5px 1px 40px rgba(0, 0, 0, .1);
@@ -4643,7 +4647,7 @@ table.focus-on tbody tr.focused th {
     color: #fff;
     text-transform: uppercase;
     font-size: 13px;
-    background: #0283cc
+    background: #e40000 !important;
 }
 
 .right-sidebar .rpanel-title span {
@@ -5648,7 +5652,7 @@ ul.list-icons li i {
 .logo b {
     height: 60px;
     display: inline-block;
-    width: 60px;
+    width: 100%;
     line-height: 60px;
     text-align: center
 }
@@ -5698,7 +5702,7 @@ ul.list-icons li i {
 }
 
 .navbar-top-links>li>a {
-    color: rgba(255, 255, 255, .7);
+    color: #e40000;
     line-height: 60px;
     min-height: 60px
 }
@@ -5718,7 +5722,7 @@ ul.list-icons li i {
 
 .navbar-right>li>a {
     padding: 0 24px;
-    border-right: 1px solid rgba(255, 255, 255, .2)
+    border-right: 1px solid #e40000;
 }
 
 .nav .open>a,
@@ -7203,16 +7207,24 @@ ul.list-icons li i {
 }
 
 .sidebar-nav ul#side-menu li a:hover {
-    color: #8d9498;
+    color: #e74a25 !important;
+}
+.sidebar-nav #side-menu > li:hover > a {
+    background: #fff;
+    color: #e74a25;
+    border-color: #444859;
 }
 
 .sidebar-nav ul#side-menu li a.active {
-    color: #2b2b2b;
-    background: 0 0
+    color: #fff;
+    /*background: 0 0;*/
 }
 
 .sidebar-nav ul#side-menu li a.active i {
-    color: #0283cc
+    color: #2b2b2b !important;
+}
+.sidebar-nav #side-menu > li:hover > a i {
+    color: #e74a25 !important;
 }
 
 .sidebar-nav ul#side-menu li ul {
@@ -7228,9 +7240,9 @@ ul.list-icons li i {
 }
 
 .user-profile {
-    padding: 15px 0;
+    padding: 14px 25px 14px 30px;
     position: relative;
-    text-align: center
+    
 }
 
 .user-profile .profile-image {
@@ -15862,8 +15874,8 @@ ul.pro-amenities li span i {
         margin-left: auto
     }
     .mail_listing {
-        border-left: 1px solid rgba(120, 130, 140, .13);
-        padding-left: 20px
+        /*border-left: 1px solid rgba(120, 130, 140, .13);
+        padding-left: 20px */
     }
     .inbox-panel {
         padding-right: 20px
@@ -16206,12 +16218,19 @@ ul.pro-amenities li span i {
     padding: 80px 0;
 }
 
+.ptb-4p {
+    padding: 4% 0;
+}
+
 .m-auto{
     margin:0 auto;
 }
 
 .w1p{
     width: 1%;
+}
+.w6p {
+    width: 6%;
 }
 
 .lh-1{
@@ -16222,8 +16241,16 @@ ul.pro-amenities li span i {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px 0px;
 }
 
+.mb-5{
+    margin-bottom: 5px !important;
+}
+
 .m-b-56{
     margin:0 0 56px;
+}
+
+.mb30 {
+    margin: 0 0 30px;
 }
 
 .copy-icon {
@@ -16309,4 +16336,32 @@ ul.pro-amenities li span i {
 
 .el-element-overlay .white-box h3.f-18 {
     font-size: 18px;
+}
+.btn-red {
+    background: #e40000;
+    border: 1px solid #df1616;
+    color: #fff;
+}
+.btn-red:hover {
+    background: white;
+    border: 1px solid #df1616;
+    color: #e40000;
+}
+.red {
+    color: #e40000 !important;
+}
+
+.bc-red {
+    border-color: #e40000 !important;
+}
+
+.width-auto{
+    width: auto !important;
+}
+.mlr-auto {
+    margin: 0 auto !important;
+}
+
+.float-none {
+    float: none !important;
 }

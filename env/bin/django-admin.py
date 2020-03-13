@@ -1,4 +1,4 @@
-#!/Users/user/Desktop/Project/scannerr/env/bin/python
+#!/home/xyborgg/Desktop/WORK/novaapp/scannerr/env/bin/python3
 from django.core import management
 
 if __name__ == "__main__":

@@ -17,9 +17,9 @@
     <!-- ===== Bootstrap CSS ===== -->
     <link href="{% static 'bootstrap2/dist/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- ===== Plugin CSS ===== -->
-    <link rel="stylesheet" href="{% static 'plugins2/components/dropify/dist/css/dropify.min.css' %}">
+    <link href="{% static 'plugins2/components/dropify/dist/css/dropify.min.css' %}" rel="stylesheet">
     <link href="{% static 'plugins2/components/Magnific-Popup-master/dist/magnific-popup.css' %}" rel="stylesheet">
-    <link href="{% static 'plugins2/components/morrisjs/morris.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins2/components/morrisjs/morris.css' %}" rel="stylesheet"> 
     <link href="{% static 'plugins2/components/chartist-js/dist/chartist.min.css' %}" rel="stylesheet">
     <link href="{% static 'plugins2/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css' %}" rel="stylesheet">
     <!-- ===== Animation CSS ===== -->
@@ -53,11 +53,10 @@
                 <div class="top-left-part">
                     <a class="logo" href="home.html">
                         <b>
-                            <img src="{% static 'plugins2/images/logo.png' %}" alt="home" />
+                            <span class="customer-logo">
+                                <img src="{% static 'plugins2/images/airtel-logo.png' %}" alt="homepage" class="dark-logo" />
+                            </span>
                         </b>
-                        <span class="customer-logo">
-                            <img src="{% static 'plugins2/images/airtel-logo.png' %}" alt="homepage" class="dark-logo" />
-                        </span>
                     </a>
                 </div>
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
@@ -67,12 +66,6 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
-                    <li class="">
-                        <div class="top-nav">
-                            <button class="btn top-nav-color text-white align-middle d-inline-block" href="/NewCampaign">Create
-                                campaign</button>
-                        </div>
-                    </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle waves-effect waves-light font-20" data-toggle="dropdown"
                             href="javascript:void(0);">
@@ -139,95 +132,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle waves-effect waves-light font-20" data-toggle="dropdown"
-                            href="javascript:void(0);">
-                            <i class="icon-user"></i>
-                            <span class="badge badge-xs badge-danger">3</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-tasks animated slideInUp">
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div>
-                                        <p>
-                                            <strong>Task 1</strong>
-                                            <span class="pull-right text-muted">40% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-success" role="progressbar"
-                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 40%">
-                                                <span class="sr-only">40% Complete (success)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div>
-                                        <p>
-                                            <strong>Task 2</strong>
-                                            <span class="pull-right text-muted">20% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-info" role="progressbar"
-                                                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 20%">
-                                                <span class="sr-only">20% Complete</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div>
-                                        <p>
-                                            <strong>Task 3</strong>
-                                            <span class="pull-right text-muted">60% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-warning" role="progressbar"
-                                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 60%">
-                                                <span class="sr-only">60% Complete (warning)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div>
-                                        <p>
-                                            <strong>Task 4</strong>
-                                            <span class="pull-right text-muted">80% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-danger" role="progressbar"
-                                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 80%">
-                                                <span class="sr-only">80% Complete (danger)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a class="text-center" href="javascript:void(0);">
-                                    <strong>See All Tasks</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
                     <li class="right-side-toggle">
-                        <a class="right-side-toggler waves-effect waves-light b-r-0 font-20" href="javascript:void(0)">
+                        <a class="right-side-toggler waves-effect waves-light b-r-0 font-20" href="javascript:void(0);">
                             <i class="icon-settings"></i>
                         </a>
                     </li>
@@ -235,7 +141,18 @@
             </div>
         </nav>
         <!-- ===== Top-Navigation-End ===== -->
-         {% block content %}
+        {% if messages %}
+        <div class="container">
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                {% for message in messages %}
+                <p {% if message.tags %} class="{{ message.tags }}" {% endif %} >{{ message }}</p><br/>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% block content %}
 
 
          {% endblock content %}
@@ -244,10 +161,7 @@
             <div class="scroll-sidebar">
                 <div class="user-profile">
                     <div class="dropdown user-pro-body">
-                        <div class="profile-image">
-                            <img src="{% static 'plugins2/images/users/ayo.jpg' %}" alt="user-img" class="img-circle" />
-                        </div>
-                        <p class="profile-text m-t-15 font-16"><a href="javascript:void(0);">  Hi {{user.username}} </a></p>
+                        <p class="profile-text m-t-15 font-16"><a href="javascript:void(0);"><span class="font-50"><i class="icon-people fa-fw font-50 width-auto"></i></span>  Hi {{user.username}} </a></p>
                     </div>
                 </div>
                 <nav class="sidebar-nav">
@@ -266,10 +180,17 @@
                             <a class="{% if url_name == 'campaign_list' %} waves-effect active {% endif %}" href="{% url 'campaign_list' %}" aria-expanded="false"><i class="icon-note fa-fw"></i> <span class="hide-menu"> Manage </span></a>
                         </li>
                         <li>
+                            <a class="active waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-grid fa-fw"></i> <span class="hide-menu"> Directory </span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li> <a href="javascript:void(0);">Directories</a> </li>
+                                <li> <a href="javascript:void(0);">New Directory</a> </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a class="{% if url_name == '' %} waves-effect active {% endif %} " href="javascript:void(0);" aria-expanded="false"><i class="icon-wallet fa-fw"></i> <span class="hide-menu"> Tracking</span></a>
                         </li>
                         <li>
-                            <a class="{% if url_name == '' %} waves-effect active {% endif %}" href="javascript:void(0);" aria-expanded="false"><i class="icon-bubbles fa-fw"></i> <span class="hide-menu"> Support</span></a>
+                            <a class="{% if url_name == 'contactus' %} waves-effect active {% endif %}" href="{% url 'contactus' %}" aria-expanded="false"><i class="icon-bubbles fa-fw"></i> <span class="hide-menu"> Support</span></a>
                         </li>
                         {% endwith %}
                     </ul>
@@ -281,7 +202,7 @@
         <!-- ===== Right-Sidebar ===== -->
                 <div class="right-sidebar">
                     <div class="slimscrollright">
-                        <div class="rpanel-title"> Service Panel <span><i
+                        <div class="rpanel-title shadow"> Service Panel <span><i
                                     class="icon-close right-side-toggler"></i></span> </div>
                         <div class="r-panel-body">
                             <ul class="animated flipInY">
@@ -319,23 +240,23 @@
     <script src="{% static 'js2/custom.js' %}"></script>
     <!-- ===== Plugin JS ===== -->
     <script src="{% static 'plugins2/components/raphael/raphael-min.js' %}"></script>
-    <script src="{% static 'plugins2/components/morrisjs/morris.js' %}"></script>
-    <script src="{% static 'plugins2/components/chartist-js/dist/chartist.min.js' %}"></script>
-    <script src="{% static 'plugins2/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js' %}"></script>
+    <!--<script src="{% static 'plugins2/components/morrisjs/morris.js' %}"></script> -->
+    <!-- <script src="{% static 'plugins2/components/chartist-js/dist/chartist.min.js' %}"></script> -->
+    <!-- <script src="{% static 'plugins2/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js' %}"></script> -->
     <script src="{% static 'plugins2/components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js' %}"></script>
     <script src="{% static 'plugins2/components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js' %}"></script>
-     <script src="{% static 'plugins2/components/styleswitcher/jQuery.style.switcher.js' %}"></script>
+    <script src="{% static 'plugins2/components/styleswitcher/jQuery.style.switcher.js' %}"></script>
     <!-- jQuery file upload -->
     <script src="{% static 'plugins2/components/dropify/dist/js/dropify.min.js' %}"></script>
-    <script>
+    <!--<script>
         $(document).ready(function(){
         {% block jquery %}
 
         {% endblock %}
         });
-    </script>
+    </script> !-->
 
-    <script src="{% static 'js2/db4.js' %}"></script>
+    <!-- <script src="{% static 'js2/db4.js' %}"></script> -->
 
     <!-- ===== Style Switcher JS ===== -->
     <script src="{% static 'plugins2/components/styleswitcher/jQuery.style.switcher.js' %}"></script>

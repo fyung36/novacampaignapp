@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from django.contrib import admin
 # from django.contrib.auth.admin import UserAdmin
-from .models import Pictureurl, Analytics
+from .models import Pictureurl, Analytics, CSV
 
 
 class PictureUrlAdmin(admin.ModelAdmin):
@@ -12,6 +12,12 @@ class PictureUrlAdmin(admin.ModelAdmin):
     class meta:
         model = Pictureurl
 
+class CsvAdmin(admin.ModelAdmin):
+    list_display = ["auid", "name","csv_file_name","csv_path","date_created"]
+
+    class meta:
+        model = CSV
+
 
 class AnalyticsAdmin(admin.ModelAdmin):
     list_display = ('device', 'ip','campaign_url')
@@ -19,3 +25,4 @@ class AnalyticsAdmin(admin.ModelAdmin):
 
 admin.site.register(Analytics, AnalyticsAdmin)
 admin.site.register(Pictureurl, PictureUrlAdmin)
+admin.site.register(CSV, CsvAdmin)

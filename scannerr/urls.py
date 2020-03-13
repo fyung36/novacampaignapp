@@ -23,6 +23,7 @@ from pictureURL.views import campaign
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('campaign/<slug:auid>', campaign, name='campaign_banner'),
+    path('', include('accounts.urls')),
     path('', include('pictureURL.urls')),
     path('', include('airtel.urls')),
 

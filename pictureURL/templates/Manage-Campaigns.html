@@ -16,7 +16,7 @@
                                 <div class="row el-element-overlay m-b-20">
 
                                     <!-- /.usercard -->
-                                    {% for item in items %}
+                                    {% for item in  user.campaign.all %}
                                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                         <div class="white-box">
                                             <div class="el-card-item">
@@ -72,7 +72,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            {% for item in items %}
+                                            {% for item in user.campaign.all %}
                                             <td>
                                                 <a href="{% url 'campaign_banner' item.auid %}" target="_blank" class="text-link" id="copyInput"> {{ item.short_link }}</a>
                                                 <span class="float-right" onclick="copyFunction"><i class="btn-link btn-copy icon-docs fa-fw copy-icon font-16" aria-hidden="true"></i></span>
@@ -80,7 +80,7 @@
                                             <td>{{item.title}}</td>
                                             <td> <span class="text-muted"> <i class="fa fa-clock-o"></i>&nbsp; {{ item.date_created }}</span> </td>
                                             <td>
-                                                <a href="/smsform"
+                                                <a href="/smsform/{{item.id}}"
                                                     class="btn btn-default btn-outline btn-success btn-white font-16"><i
                                                         class="fa  fa-location-arrow" aria-hidden="true"></i></a>
                                             </td>
@@ -99,26 +99,83 @@
                                     </tbody>
                                 </table>
                             </div>
-                            {% if items.has_other_pages %}
-                                <ul class="pagination">
-                                    {% if items.has_previous %}
-                                        <li><a href="?page={{ items.previous_page_number }}">&laquo;</a></li>
-                                    {% else %}
-                                        <li class="disabled"><span>&laquo;</span></li>
-                                    {% endif %}
-                                    {% for i in items.paginator.page_range %}
-                                        {% if items.number == i %}
-                                            <li class="active"><span>{{ i }} <span class="sr-only">(current) 1 </span></span></li>
-                                        {% else %}
-                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
-                                        {% endif %}
-                                    {% endfor %}
-                                    {% if items.has_next %}
-                                        <li><a href="?page={{ items.next_page_number }}">&raquo;</a></li>
-                                    {% else %}
-                                        <li class="disabled"><span>&raquo;</span></li>
-                                    {% endif %}
-                                </ul>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h4 class="box-title">All csv </h4>
+                                </div>
+                                <div class="col-sm-6">
+                                    <select class="custom-select">
+                                        <option selected>Sort by</option>
+                                        <option value="1">Recently Added</option>
+                                        <option value="2">Date Created</option>
+                                        <option value="3">Recently Modified</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>name</th>
+                                            <th>Campaign Name</th>
+                                            <th>Date Created</th>
+                                            <th>Publish</th>
+                                            <th>Edit</th>
+                                            <th>View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            {% for item in csv %}
+<!--                                            <td>-->
+<!--                                                <a href="{% url 'campaign_banner' item.auid %}" target="_blank" class="text-link" id="copyInput"> {{ item.short_link }}</a>-->
+<!--                                                <span class="float-right" onclick="copyFunction"><i class="btn-link btn-copy icon-docs fa-fw copy-icon font-16" aria-hidden="true"></i></span>-->
+<!--                                            </td>-->
+
+                                            <td>{{item.csv_file_name}}</td>
+                                            <td>{{item.name}}</td>
+                                            <td> <span class="text-muted"> <i class="fa fa-clock-o"></i>&nbsp; {{ item.date_created }}</span> </td>
+                                            <td>
+                                                <a href="/smsform/{{item.id}}"
+                                                    class="btn btn-default btn-outline btn-success btn-white font-16"><i
+                                                        class="fa  fa-location-arrow" aria-hidden="true"></i></a>
+                                            </td>
+                                            <td>
+                                                <a href="/edit/{{item.id}}"
+                                                    class="btn btn-default btn-outline btn-warning font-16"><i
+                                                        class="fa fa-edit" aria-hidden="true"></i></a>
+                                            </td>
+                                            <td>
+                                                <a href="{% url 'directorydetail' item.auid %}"
+                                                    class="btn btn-default btn-outline btn-primary font-16"><i
+                                                        class="fa fa-chain" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                     {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                           {% if is_paginated %}
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                                {% else %}
+                                <li class="disabled"><span>&laquo;</span></li>
+                                {% endif %}
+                                {% for i in paginator.page_range %}
+                                {% if page_obj.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                                {% endfor %}
+                                {% if page_obj.has_next %}
+                                <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                                {% else %}
+                                <li class="disabled"><span>&raquo;</span></li>
+                                {% endif %}
+                            </ul>
                             {% endif %}
 
                         </div>

@@ -7,14 +7,15 @@ from . import views
 
 urlpatterns = [
     path("", dashboard, name="dashboard"),
-    path('login/', login_page , name="login_page"),
-    path('logout/', logout, name='logout'),
-    path('AllCampaigns/', campaign_list, name="campaign_list"),
+    path('AllCampaigns/', CampaignView.as_view(), name="campaign_list"),
     path('campaigndetail/<slug:auid>', campaigndetail, name='campaigndetail'),
-    path("NewCampaign/", Upload_Campaign.as_view(),  name="new_campaign"),
+    path("newcampaign/", Upload_Campaign.as_view(),  name="new_campaign"),
+    path("new_directory/", UploadCSV.as_view(),  name="new_directoryg"),
+    path('directorydetail/<slug:auid>', directorydetail, name='directorydetail'),
     path("edit/<int:id>/", EditListView.as_view(), name="edit_campaign"),
+    path("contactus/", EmailAttachementView.as_view(), name="contactus"),
     path("Delete_Campaign/<int:pk>/", delete_campaign, name="delete_campaign"),
-    path("smsform/", Publish.as_view(),  name="textform"),
+    path("smsform/<slug:id>", Publish.as_view(),  name="textform"),
     path("result/", search, name="search"),
     # path("Calender/", calender, name="calender")
 

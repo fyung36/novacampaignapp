@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title m-b-0"> Create A New User </h3>
+                    <form method="POST" class="form-horizontal form-material" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% for field in form %}
+                              <p>
+                                {{ field.label_tag }}<br>
+                                {{ field }}
+                                {% if field.help_text %}
+                                  <small style="color: grey">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                  <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                              </p>
+                            {% endfor %}
+                            <div>
+                                <button type="submit" class="btn btn-danger waves-effect waves-light m-r-10 "> Submit </button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
