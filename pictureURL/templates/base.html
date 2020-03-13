@@ -25,7 +25,7 @@
     <!-- ===== Animation CSS ===== -->
     <link href="{% static 'css2/animate.css' %}" rel="stylesheet">
     <!-- ===== Custom CSS ===== -->
-
+    <link href="{% static 'plugins2/components/bootstrap-select/bootstrap-select.min.css' %}" rel="stylesheet" />
     <link href="{% static 'css2/style.css' %}" rel="stylesheet">
     <!-- ===== Color CSS ===== -->
     <link href="{% static 'css2/colors/default.css' %}" id="theme" rel="stylesheet">
@@ -180,10 +180,10 @@
                             <a class="{% if url_name == 'campaign_list' %} waves-effect active {% endif %}" href="{% url 'campaign_list' %}" aria-expanded="false"><i class="icon-note fa-fw"></i> <span class="hide-menu"> Manage </span></a>
                         </li>
                         <li>
-                            <a class="active waves-effect" href="javascript:void(0);" aria-expanded="false"><i class="icon-grid fa-fw"></i> <span class="hide-menu"> Directory </span></a>
+                            <a class="{% if url_name == '' %} waves-effect active {% endif %} " href="javascript:void(0);" aria-expanded="false"><i class="icon-grid fa-fw"></i> <span class="hide-menu"> Directory </span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li> <a href="javascript:void(0);">Directories</a> </li>
-                                <li> <a href="javascript:void(0);">New Directory</a> </li>
+                                <li class=""> <a class="sub-hover" href="javascript:void(0);">Directories</a> </li>
+                                <li class=""> <a class="sub-hover" href="javascript:void(0);">New Directory</a> </li>
                             </ul>
                         </li>
                         <li>
@@ -217,7 +217,7 @@
                 <!-- ===== Right-Sidebar-End ===== -->
             </div>
             <!-- /.container-fluid -->
-            <footer class="footer t-a-c"> © 2020 NOVA Admin
+            <footer class="footer t-a-c"> © 2020 NOVA 360
             </footer>
         </div>
         <!-- /#page-wrapper -->
@@ -246,15 +246,18 @@
     <script src="{% static 'plugins2/components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js' %}"></script>
     <script src="{% static 'plugins2/components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js' %}"></script>
     <script src="{% static 'plugins2/components/styleswitcher/jQuery.style.switcher.js' %}"></script>
+    
+    <script src="{% static 'plugins2/custom-select/custom-select.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'plugins2/bootstrap-select/bootstrap-select.min.js' %}" type="text/javascript"></script>
     <!-- jQuery file upload -->
     <script src="{% static 'plugins2/components/dropify/dist/js/dropify.min.js' %}"></script>
-    <!--<script>
+    <script>
         $(document).ready(function(){
         {% block jquery %}
 
         {% endblock %}
         });
-    </script> !-->
+    </script>
 
     <!-- <script src="{% static 'js2/db4.js' %}"></script> -->
 

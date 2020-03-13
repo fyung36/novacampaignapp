@@ -808,14 +808,14 @@ hr {
 
 .bg-white {
     background-color: #fff!important;
-    color: #8d9498
+    color: #000;
 }
 
 .label {
     letter-spacing: .05em;
     border-radius: 60px;
     padding: 4px 16px 3px;
-    font-weight: 500
+    font-weight: 500;
 }
 
 .label-rounded {
@@ -1634,7 +1634,8 @@ ul.list-inline li h6 {
 }
 
 label {
-    font-weight: 500
+    font-weight: 500;
+    color: #000;
 }
 
 .form-control {
@@ -5865,7 +5866,7 @@ ul.list-icons li i {
     background: #fff;
     padding: 25px;
     margin-bottom: 30px;
-    border: 1px solid #e5ebec;
+    border: 1px solid #e40000;
     border-radius: 4px
 }
 
@@ -16364,4 +16365,8 @@ ul.pro-amenities li span i {
 
 .float-none {
     float: none !important;
+}
+
+.sidebar-nav ul#side-menu .sub-hover:hover {
+    color: #e3d7d7 !important;
 }
