@@ -32,9 +32,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 float-none">
                                                 <div class="form-group">
-                                                    <label for="colorSelect">Choose A Directory </label>
+                                                    <label class="control-label mb-5">Choose A Directory <i class=" icon-grid red"></i></label>
                                                     <select class="selectpicker" data-style="form-control" name="auid">
                                                         {% for object in csv %}
                                                         <option value="{{ object.auid }}">{{ object.name }}</option>
@@ -44,7 +44,7 @@
                                             </div>
                                             <div class="col-md-8 ">
                                                 <div class="form-group">
-                                                    <label class="control-label mb-5">Text Message <i class=" icon-pencil red"></i>(<span class="char-count"> 170</span> characters left)</label>
+                                                    <label class="control-label mb-5">Text Message <i class=" icon-pencil red"></i><span class="m-l-10">(<span class="char-count">170</span> characters left)</span></label>
                                                     <textarea required name="sms" class="form-control char-textarea" data-length=170 style="resize: none;" rows="3">{{details.short_link}}</textarea>
                                                 </div>
                                             </div>
@@ -143,3 +143,52 @@
     </div>
 </div>
 {% endblock content %}
+
+<script>
+{% block jquery %}
+    // Switchery
+    var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+    $('.js-switch').each(function() {
+        new Switchery($(this)[0], $(this).data());
+    });
+    // For select 2
+    $(".select2").select2();
+    $('.selectpicker').selectpicker();
+    //Bootstrap-TouchSpin
+    $(".vertical-spin").TouchSpin({
+        verticalbuttons: true,
+        verticalupclass: 'ti-plus',
+        verticaldownclass: 'ti-minus'
+    });
+    var vspinTrue = $(".vertical-spin").TouchSpin({
+        verticalbuttons: true
+    });
+    if (vspinTrue) {
+        $('.vertical-spin').prev('.bootstrap-touchspin-prefix').remove();
+    }
+    $("input[name='tch1']").TouchSpin({
+        min: 0,
+        max: 100,
+        step: 0.1,
+        decimals: 2,
+        boostat: 5,
+        maxboostedstep: 10,
+        postfix: '%'
+    });
+    $("input[name='tch2']").TouchSpin({
+        min: -1000000000,
+        max: 1000000000,
+        stepinterval: 50,
+        maxboostedstep: 10000000,
+        prefix: '$'
+    });
+    $("input[name='tch3']").TouchSpin();
+    $("input[name='tch3_22']").TouchSpin({
+        initval: 40
+    });
+    $("input[name='tch5']").TouchSpin({
+        prefix: "pre",
+        postfix: "post"
+    });
+{% endblock %}
+</script>
