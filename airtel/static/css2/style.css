@@ -5653,7 +5653,7 @@ ul.list-icons li i {
 .logo b {
     height: 60px;
     display: inline-block;
-    width: 100%;
+    width: max-content;
     line-height: 60px;
     text-align: center
 }
@@ -5665,7 +5665,8 @@ ul.list-icons li i {
 .top-left-part {
     width: 265px;
     float: left;
-    background: rgba(0, 0, 0, .1)
+    background: rgba(0, 0, 0, .1);
+    border-right: 1px solid #444859;
 }
 
 .top-left-part a {
@@ -5774,7 +5775,7 @@ ul.list-icons li i {
     padding: 0 15px;
     line-height: 60px;
     border: 0;
-    color: rgba(255, 255, 255, .5);
+    color: #e40000;
     margin: 0;
     display: inline-block;
     border-radius: 0
@@ -5782,8 +5783,8 @@ ul.list-icons li i {
 
 .navbar-header .navbar-toggle:focus,
 .navbar-header .navbar-toggle:hover {
-    background: rgba(0, 0, 0, .1);
-    color: #fff
+    background: #fff;
+    color: #e40000
 }
 
 .app-search {
@@ -7126,6 +7127,10 @@ ul.list-icons li i {
 
 .mini-sidebar .top-left-part {
     width: 60px
+}
+
+.mini-sidebar .top-left-part .dark-logo {
+    width: 42px
 }
 
 .mini-sidebar .album-widget li {
@@ -15932,6 +15937,9 @@ ul.pro-amenities li span i {
         width: 60px;
         margin-left: 0
     }
+    .dark-logo {
+        width: 42px
+    }
     .profile,
     .profile i {
         margin-right: 0
@@ -16369,4 +16377,12 @@ ul.pro-amenities li span i {
 
 .sidebar-nav ul#side-menu .sub-hover:hover {
     color: #e3d7d7 !important;
+}
+
+.dark-logo {
+    width: 100px;
+}
+.logo-holder {
+    width: max-content;
+    margin: 0 auto;
 }
